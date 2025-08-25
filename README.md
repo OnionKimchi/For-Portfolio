@@ -38,7 +38,7 @@ https://drive.google.com/file/d/1JG1akxKOh-EYhb07p84_bXnLRH5ysh7c/view?usp=shari
 ![캐릭터 리스트 화면](Images/CharacterList.png)  
 - 보유 캐릭터 리스트 데이터를 기반으로 캐릭터 슬롯 UI를 동적으로 생성  
 - 각 슬롯에 캐릭터 스프라이트, 이름, 등급 등의 텍스트 정보를 매핑  
-- 미보유 캐릭터도 동일한 방식으로 슬롯을 생성하여 “회색 처리” 상태로 표시  
+- 미보유 캐릭터도 동일한 방식으로 슬롯을 생성 
 
 ---
 
