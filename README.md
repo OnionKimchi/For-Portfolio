@@ -30,9 +30,15 @@ https://drive.google.com/file/d/1JG1akxKOh-EYhb07p84_bXnLRH5ysh7c/view?usp=shari
 ---
 
 ## 🖥️ 결과물 스크린샷
-(이미지들은 `images/` 폴더에 넣고 참조하세요)
 
 ![캐릭터 리스트 화면](Images/CharacterList.png)
+- 전체 캐릭터 
+![기본 정보 화면](Images/BasicInfo.png)
+
+![레벨업 화면](Images/LevelUp.png)
+
+![스킬레벨업 화면](Images/SkillUp.png)
+
 ![인벤토리 화면](Images/Inventory.png)
 ![층 선택 화면](Images/FloorSelect.png)
 ![캐릭터 셀렉 화면](Images/CharacterSelect.png)
