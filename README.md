@@ -32,8 +32,12 @@ https://drive.google.com/file/d/1JG1akxKOh-EYhb07p84_bXnLRH5ysh7c/view?usp=shari
 ## 🖥️ 결과물 스크린샷
 (이미지들은 `images/` 폴더에 넣고 참조하세요)
 
-![전투 화면](images/battle.png)
-![로비 화면](images/lobby.png)
+![캐릭터 리스트 화면](Images/CharacterList.png)
+![인벤토리 화면](Images/Inventory.png)
+![층 선택 화면](Images/FloorSelect.png)
+![캐릭터 셀렉 화면](Images/CharacterSelect.png)
+![구매 화면](Images/Buy.png)
+![회복 화면](Images/Heal.png)
 
 ---
 ## 🚀 배운 점 & 성과
