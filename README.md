@@ -31,19 +31,67 @@ https://drive.google.com/file/d/1JG1akxKOh-EYhb07p84_bXnLRH5ysh7c/view?usp=shari
 
 ## 🖥️ 결과물 스크린샷
 
-![캐릭터 리스트 화면](Images/CharacterList.png)
-- 전체 캐릭터 
-![기본 정보 화면](Images/BasicInfo.png)
+### 프로젝트에서 제가 작업한 영역의 결과물을 표시합니다.
 
-![레벨업 화면](Images/LevelUp.png)
+---
 
-![스킬레벨업 화면](Images/SkillUp.png)
+![캐릭터 리스트 화면](Images/CharacterList.png)  
+- 보유 캐릭터 리스트 데이터를 기반으로 캐릭터 슬롯 UI를 동적으로 생성  
+- 각 슬롯에 캐릭터 스프라이트, 이름, 등급 등의 텍스트 정보를 매핑  
+- 미보유 캐릭터도 동일한 방식으로 슬롯을 생성하여 “회색 처리” 상태로 표시  
 
-![인벤토리 화면](Images/Inventory.png)
-![층 선택 화면](Images/FloorSelect.png)
-![캐릭터 셀렉 화면](Images/CharacterSelect.png)
-![구매 화면](Images/Buy.png)
-![회복 화면](Images/Heal.png)
+---
+
+![기본 정보 화면](Images/BasicInfo.png)  
+- 선택된 캐릭터의 기본 능력치(HP, 공격력, 방어력 등)를 UI에 출력  
+- ScriptableObject 기반 캐릭터 데이터를 읽어 뷰어에 반영  
+
+---
+
+![레벨업 화면](Images/LevelUp.png)  
+- 경험치 아이템 사용 시 캐릭터 능력치 증가를 계산하고 UI에 반영  
+- 버튼 입력 → 데이터 반영 → UI 업데이트 순서로 동작  
+
+---
+
+![스킬 레벨업 화면](Images/SkillUp.png)  
+- 스킬 강화 시 강화 전/후 수치를 비교하여 UI에 표시  
+- 강화 비용(재화, 아이템)을 체크하고 조건 충족 시 강화 가능  
+- 강화 성공 시 Json SaveData에 반영  
+
+---
+
+![인벤토리 화면](Images/Inventory.png)  
+- 소지 아이템 목록을 리스트로 UI에 동적 생성  
+- 아이템 상세 정보를 선택 영역에 표시  
+- Json SaveData에 따라 보유 개수 동기화  
+
+---
+
+![층 선택 화면](Images/FloorSelect.png)  
+- StageManager와 연동된 층 선택 UI  
+- 버튼 입력에 따라 해당 층의 StageData를 로드하도록 구현  
+- 보스 정보 및 속성 아이콘을 함께 표시  
+
+---
+
+![캐릭터 셀렉 화면](Images/CharacterSelect.png)  
+- 전투 진입 시 파티 구성 UI  
+- 보유 캐릭터 리스트를 불러와 선택 가능하게 구성  
+- 선택된 캐릭터를 전투 Scene으로 전달  
+
+---
+
+![구매 화면](Images/Buy.png)  
+- 상점 UI에서 아이템 구매 시 재화 차감 및 아이템 지급 로직 연결  
+- 판매 아이템 리스트를 ScriptableObject 데이터 기반으로 표시  
+
+---
+
+![회복 화면](Images/Heal.png)  
+- 힐러 NPC UI에서 선택된 캐릭터 HP 회복 처리  
+- 단일/전체 회복, 부활 기능 등 다양한 회복 옵션 제공  
+- 사용 시 보유 재화 차감 및 SaveData 업데이트
 
 ---
 ## 🚀 배운 점 & 성과
