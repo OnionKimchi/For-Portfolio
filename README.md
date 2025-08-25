@@ -16,7 +16,7 @@ https://drive.google.com/file/d/1JG1akxKOh-EYhb07p84_bXnLRH5ysh7c/view?usp=shari
 
 ---
 
-## 🔧 담당 업무 및 기여
+## 🔧 저의 담당 업무 및 기여
 ### 주요 담당
 - StageManager: 전반적인 스테이지 로직 구현
 - StageData / ChapterData: ScriptableObject 기반 정적 데이터 관리
