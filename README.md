@@ -22,6 +22,11 @@ https://drive.google.com/file/d/1JG1akxKOh-EYhb07p84_bXnLRH5ysh7c/view?usp=shari
 - StageData / ChapterData: ScriptableObject 기반 정적 데이터 관리
 - StageSaveData: Json 기반 저장/로드 처리
 - BattleUIController: 스테이지 UI와 로직 연결
+- SoundManager(사운드 조절)
+  - BGM/SFX 채널 분리 및 `AudioMixer` 그룹 구성
+  - 슬라이더 UI ↔ `AudioMixer` Exposed Parameters 연동(개별 볼륨 조절)
+  - 씬 전환 시 `DontDestroyOnLoad`로 지속 관리
+  - 사용자 볼륨 설정 저장·로드(Json SaveData 혹은 PlayerPrefs)로 세션 간 유지
 
 ### 보조 담당
 - Enemy Prefab: 애니메이션 및 애니메이터 설정
@@ -92,6 +97,10 @@ https://drive.google.com/file/d/1JG1akxKOh-EYhb07p84_bXnLRH5ysh7c/view?usp=shari
 - 힐러 NPC UI에서 선택된 캐릭터 HP 회복 처리  
 - 단일/전체 회복, 부활 기능 등 다양한 회복 옵션 제공  
 - 사용 시 보유 재화 차감 및 SaveData 업데이트
+
+---
+## 🎬 시연 영상
+- YouTube: https://www.youtube.com/watch?v=G4RhUlvXA5w
 
 ---
 ## 🚀 배운 점 & 성과
