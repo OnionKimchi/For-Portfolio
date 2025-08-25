@@ -100,7 +100,9 @@ https://drive.google.com/file/d/1JG1akxKOh-EYhb07p84_bXnLRH5ysh7c/view?usp=shari
 
 ---
 ## 🎬 시연 영상
-- YouTube: https://www.youtube.com/watch?v=G4RhUlvXA5w
+
+[![미궁 다이스 시연 영상](https://img.youtube.com/vi/G4RhUlvXA5w/0.jpg)](https://www.youtube.com/watch?v=G4RhUlvXA5w)
+
 
 ---
 ## 🚀 배운 점 & 성과
