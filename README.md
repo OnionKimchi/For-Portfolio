@@ -1,36 +1,50 @@
-# For-Submission
-프로젝트에서 제가 작성한 스크립트 제출용입니다
-
-저작권이 있는 에셋을 포함시키지 않기 위해 스크립트만 따로 제출하는 레포지토리입니다
-
-아래는 빌드 파일을 실행시키기 위한 링크입니다.
-https://drive.google.com/file/d/1JG1akxKOh-EYhb07p84_bXnLRH5ysh7c/view?usp=sharing
-
-# 미궁 다이스
+# 미궁 다이스 (Labyrinth Dice)
 
 ## 📌 개요
-- 장르: (예: 모바일 턴제 SRPG)
-- 개발 기간: (2025.07 - 2025.08)
-- 팀 규모: (예: 6인 프로젝트)
-- 본인 역할: (예: 스테이지 매니저 및 주요 게임 시스템 개발)
+
+* **장르**: 모바일 턴제 SRPG
+* **개발 기간**: 2025.07 \~ 2025.08 (2개월)
+* **팀 규모**: 6인 프로젝트
+* **본인 역할**: **스테이지 매니저 및 주요 게임 시스템 개발**
+
+※ 저작권 문제를 피하기 위해, 본 레포지토리는 **제가 작성한 스크립트만 제출용으로 모아둔 저장소**입니다.
+빌드 파일은 [여기](https://drive.google.com/file/d/1JG1akxKOh-EYhb07p84_bXnLRH5ysh7c/view?usp=sharing)에서 실행할 수 있습니다.
 
 ---
 
-## 🔧 저의 담당 업무 및 기여
-### 주요 담당
-- StageManager: 전반적인 스테이지 로직 구현
-- StageData / ChapterData: ScriptableObject 기반 정적 데이터 관리
-- StageSaveData: Json 기반 저장/로드 처리
-- BattleUIController: 스테이지 UI와 로직 연결
-- SoundManager(사운드 조절)
-  - BGM/SFX 채널 분리 및 `AudioMixer` 그룹 구성
-  - 슬라이더 UI ↔ `AudioMixer` Exposed Parameters 연동(개별 볼륨 조절)
-  - 씬 전환 시 `DontDestroyOnLoad`로 지속 관리
-  - 사용자 볼륨 설정 저장·로드(Json SaveData 혹은 PlayerPrefs)로 세션 간 유지
+## 🔧 담당 업무 및 설계 기여
 
-### 보조 담당
-- Enemy Prefab: 애니메이션 및 애니메이터 설정
-- UI 연동: 로비의 캐릭터 보유창, 인벤토리 UI 데이터 디스플레이
+### 스테이지 관리 (StageManager & Data)
+
+* **설계 방향**: 스테이지 진행을 단순 이벤트 호출이 아니라 **데이터 중심 구조**로 설계.
+* **구현 방식**:
+
+  * `StageData`, `ChapterData`를 ScriptableObject 기반으로 관리해 **정적 데이터와 동적 데이터의 분리**를 명확히 함.
+  * 진행 상황은 `StageSaveData`로 Json 직렬화하여 **저장/로드 가능**하게 설계.
+  * 이 구조를 통해, 스테이지 변경 시 UI/전투/저장 기능이 **중앙 매니저를 통해 일관되게 동작**하도록 구현.
+
+### UI ↔ 로직 연결
+
+* **설계 방향**: UI가 직접 데이터를 수정하지 않고, 반드시 매니저를 통해 변경되도록 함.
+* **구현 방식**:
+
+  * `BattleUIController`에서 UI 입력 → StageManager 호출 → 데이터 변경 → UI 업데이트로 **단방향 흐름**을 유지.
+  * 이를 통해, UI 변경이 게임 로직에 독립적으로 작동하도록 구조화.
+
+### 오디오 관리 (SoundManager)
+
+* **설계 방향**: 씬 전환과 사용자 설정 변화에도 안정적으로 유지되는 오디오 시스템.
+* **구현 방식**:
+
+  * `AudioMixer` 그룹을 BGM/SFX로 분리.
+  * UI 슬라이더와 `Exposed Parameters`를 연결해 **실시간 볼륨 조절** 구현.
+  * `DontDestroyOnLoad`로 씬 간 지속 관리.
+  * PlayerPrefs/Json SaveData에 저장하여 **세션 간에도 일관된 사용자 경험** 보장.
+
+### 보조 개발
+
+* Enemy Prefab 애니메이션 및 애니메이터 세팅
+* 로비 캐릭터 보유창 및 인벤토리 UI 연동
 
 ---
 
@@ -105,12 +119,26 @@ https://drive.google.com/file/d/1JG1akxKOh-EYhb07p84_bXnLRH5ysh7c/view?usp=shari
 
 
 ---
-## 🚀 배운 점 & 성과
 
-- 데이터 구조 개선: 아티팩트 세트 효과를 List에서 HashSet으로 리팩토링하여 중복 처리 문제를 방지.
-- 아키텍처 개선: 프리팹이 직접 데이터를 다루지 않고, 중앙 매니저에서만 데이터 처리를 담당하도록 수정. 이를 통해 애니메이션 방식과 관계없이 안정적인 데이터 처리 가능.
-- 데이터 직렬화 경험: 직렬화된 클래스를 활용하여 계층적 데이터 구조를 설계.
-- 성능 최적화: FindAnyObjectByType 및 FindWithTag 사용으로 빌드 환경에서 발생한 성능 저하 문제를, 사전 할당 방식으로 개선.
-- 자원 관리 개선: 캐릭터 셀렉트 기능에서 매번 객체를 생성·제거하던 방식을 오브젝트 풀링(Object Pooling)으로 전환하여 성능 향상 시도.
+
+## 🚀 성과 & 학습
+
+* **데이터 구조 개선**
+
+  * 아티팩트 세트효과를 `List`에서 `HashSet`으로 리팩토링 → 중복 처리 문제 해결.
+
+* **아키텍처 개선**
+
+  * 프리팹이 직접 데이터를 다루지 않고 **중앙 매니저 패턴**을 도입.
+  * 데이터-표현 레이어 분리를 통해 유지보수성과 확장성 강화.
+
+* **직렬화 및 계층 구조 설계 경험**
+
+  * 직렬화 클래스를 활용하여, **Chapter → Stage → Enemy/Item**으로 이어지는 계층적 데이터 구조 구현.
+
+* **성능 최적화**
+
+  * `FindAnyObjectByType`, `FindWithTag` 사용으로 인한 성능 문제를 **사전 참조 및 오브젝트 풀링**으로 해결.
+  * 파티 셀렉트 시 매번 객체를 생성·제거하지 않고 **오브젝트 풀링(Object Pooling)** 적용.
 
 
